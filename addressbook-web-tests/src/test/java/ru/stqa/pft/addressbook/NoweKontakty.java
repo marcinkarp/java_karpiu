@@ -18,6 +18,11 @@ public class NoweKontakty {
     baseUrl = "https://www.katalon.com/";
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/group.php");
+    login();
+
+  }
+
+  private void login() {
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys("admin");
@@ -25,7 +30,6 @@ public class NoweKontakty {
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='import'])[1]/following::h1[1]")).click();
-
   }
 
   @Test
