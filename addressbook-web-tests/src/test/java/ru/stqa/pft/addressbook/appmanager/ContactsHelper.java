@@ -17,12 +17,12 @@ public class ContactsHelper extends HelperBase {
   }
 
   public void fillContactsForm(GroupContacts contactsGroup) {
-    type(By.name("Contacts_name"), contactsGroup.getName());
-    type(By.name("Contacts_lastname"), contactsGroup.getName());
-    type(By.name("Contacts_company"), contactsGroup.getName());
-    type(By.name("Contacts_adress"), contactsGroup.getName());
-    type(By.name("Contacts_number"), contactsGroup.getName());
-    type(By.name("Contacts_email"), contactsGroup.getName());
+    type(By.name("firstname"), contactsGroup.getFirstname());
+    type(By.name("lastname"), contactsGroup.getLastname());
+    type(By.name("company"), contactsGroup.getCompany());
+    type(By.name("address"), contactsGroup.getAddress());
+    type(By.name("mobile"), contactsGroup.getMobile());
+    type(By.name("email"), contactsGroup.getEmail());
   }
 
   public boolean isElementPresent(By by) {
@@ -51,4 +51,23 @@ public class ContactsHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
+  public void initContactsModyfication() {
+    click(By.xpath("(// img [@ alt = 'Edit']) [3]"));
+  }
+
+  public void submitUpdateContacts() {
+    click(By.name("update"));
+  }
+
+  public void startHomePage() {
+    click(By.linkText("home"));
+  }
+
+  public void selectedContacts() {
+    click(By.name("selected[]"));
+  }
+
+  public void deletedContacts() {
+    click(By.xpath("(// img [@ alt = 'Edit']) [3]"));
+  }
 }

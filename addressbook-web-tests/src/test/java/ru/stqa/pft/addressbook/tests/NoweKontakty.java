@@ -50,7 +50,7 @@ public class NoweKontakty {
   private void fillForm(GroupContacts groupContacts) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(groupContacts.getName());
+    wd.findElement(By.name("firstname")).sendKeys(groupContacts.getFirstname());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
     wd.findElement(By.name("lastname")).sendKeys(groupContacts.getLastname());
@@ -59,10 +59,10 @@ public class NoweKontakty {
     wd.findElement(By.name("company")).sendKeys(groupContacts.getCompany());
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(groupContacts.getAdress());
+    wd.findElement(By.name("address")).sendKeys(groupContacts.getAddress());
     wd.findElement(By.name("mobile")).click();
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(groupContacts.getNumber());
+    wd.findElement(By.name("mobile")).sendKeys(groupContacts.getMobile());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
     wd.findElement(By.name("email")).sendKeys(groupContacts.getEmail());
