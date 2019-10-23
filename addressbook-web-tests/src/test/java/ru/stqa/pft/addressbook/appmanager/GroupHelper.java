@@ -12,22 +12,14 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToGroupPage(String logout) {
-    click(By.linkText(logout));
-  }
-
-  public void sumbitGroupCreate(String submit) {
-    click(By.name(submit));
+  public void submitGroupCreate() {
+    click(By.name("submit"));
   }
 
   public void fillGroupForm(GroupData groupData) {
     type(By.name("group_name"), groupData.getName());
     type(By.name("group_header"), groupData.getHeader());
     type(By.name("group_footer"), groupData.getFooter());
-  }
-
-  public void initGroupCreation(String s) {
-    click(By.name(s));
   }
 
   public boolean isElementPresent(By by) {
@@ -46,5 +38,29 @@ public class GroupHelper extends HelperBase {
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  public void returnToGroupPage() {
+    click(By.linkText("group page"));
+  }
+
+  public void initGroupModyfication() {
+    click(By.name("edit"));
+  }
+
+  public void sumbitGroupModyfication() {
+    click(By.name("update"));
+  }
+
+  public void initGroupCreation() {
+    click(By.name("new"));
+  }
+
+  public void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
+  }
+
+  public void deleteSelectedGroup() {
+    wd.findElement(By.name("delete")).click();
   }
 }

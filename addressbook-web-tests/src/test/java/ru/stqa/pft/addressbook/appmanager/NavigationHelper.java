@@ -4,13 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationHelper extends HelperBase{
-  private FirefoxDriver wd = new FirefoxDriver();
 
   public NavigationHelper(FirefoxDriver wd) {
     super(wd);
   }
 
   public void gotoGroupPage() {
-   click(By.linkText("groups"));
+    click(By.linkText("groups"));
   }
 }
