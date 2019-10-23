@@ -11,7 +11,7 @@ public class HelperBase {
     this.wd = wd;
   }
 
-  protected void click(By name) {
+  protected void click(By name)  {
     wd.findElement(name).click();
   }
 
