@@ -3,12 +3,12 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.addressbook.model.GroupContacts;
 
 public class ContactsHelper extends HelperBase {
 
-  public ContactsHelper(FirefoxDriver wd) {
+  public ContactsHelper(WebDriver wd) {
     super(wd);
   }
 

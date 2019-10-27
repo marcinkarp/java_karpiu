@@ -1,19 +1,34 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
+import sun.plugin2.util.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
-  FirefoxDriver wd;
+  WebDriver wd;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private ContactsHelper contactsHelper;
   private GroupHelper groupHelper;
+  private int browser;
+
+  public ApplicationManager(int browser) {
+    this.browser = browser;
+  }
 
   public void init() {
-    wd = new FirefoxDriver();
+    if (browser == BrowserType.MOZILLA){
+      wd = new FirefoxDriver();
+    } else if (browser == BrowserType.INTERNET_EXPLORER) {
+      wd = new InternetExplorerDriver();
+    } else if (browser == BrowserType.SAFARI_MACOSX) {
+      wd = new SafariDriver();
+    }
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/group.php");
     groupHelper = new GroupHelper(wd);
