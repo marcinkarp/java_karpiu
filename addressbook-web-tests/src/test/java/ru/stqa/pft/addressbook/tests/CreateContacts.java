@@ -10,7 +10,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.GroupContacts;
 
-public class NoweKontakty {
+public class CreateContacts {
   private WebDriver wd;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -39,7 +39,7 @@ public class NoweKontakty {
   @Test
   public void testNoweKontakty() throws Exception {
     gotoGropuContacts("add new");
-    fillForm(new GroupContacts("Marcin", "Karp", "TNG", "Rondo 1 Warszawa", "500200100", "test@o2.pl"));
+    fillForm(new GroupContacts("Marcin", "Karp", "TNG", "Rondo 1 Warszawa", "500200100", "test@o2.pl", "test1"), true);
     logout("Logout");
   }
 
@@ -47,7 +47,7 @@ public class NoweKontakty {
     wd.findElement(By.linkText(logout)).click();
   }
 
-  private void fillForm(GroupContacts groupContacts) {
+  private void fillForm(GroupContacts groupContacts, boolean b) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys(groupContacts.getFirstname());

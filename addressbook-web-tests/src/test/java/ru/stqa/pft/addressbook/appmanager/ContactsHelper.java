@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.GroupContacts;
 
 public class ContactsHelper extends HelperBase {
@@ -16,21 +18,20 @@ public class ContactsHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void fillContactsForm(GroupContacts contactsGroup) {
+  public void fillContactsForm(GroupContacts contactsGroup, boolean creation) {
     type(By.name("firstname"), contactsGroup.getFirstname());
     type(By.name("lastname"), contactsGroup.getLastname());
     type(By.name("company"), contactsGroup.getCompany());
     type(By.name("address"), contactsGroup.getAddress());
     type(By.name("mobile"), contactsGroup.getMobile());
     type(By.name("email"), contactsGroup.getEmail());
-  }
 
-  public boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
+    if(creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactsGroup.getGroup());
+    }else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
+    if(isElementPresent(By.name("new_group"))) {
     }
   }
 

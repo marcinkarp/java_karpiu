@@ -11,7 +11,7 @@ public class ContactsModificationTest extends TestBase {
     app.getContactsHelper().startHomePage();
     app.getContactsHelper().initContactsModyfication();
     app.getContactsHelper().fillContactsForm
-            (new GroupContacts("Bolek","Lolek","PO","dsada","151515","dasdasda"));
+            (new GroupContacts("Bolek","Lolek","PO","dsada","151515","dasdasda", null), false);
     app.getContactsHelper().submitUpdateContacts();
     app.getContactsHelper().returnToHomePage();
   }
