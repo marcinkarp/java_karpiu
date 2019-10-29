@@ -26,12 +26,12 @@ public class ContactsHelper extends HelperBase {
     type(By.name("mobile"), contactsGroup.getMobile());
     type(By.name("email"), contactsGroup.getEmail());
 
-    if(creation) {
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactsGroup.getGroup());
-    }else {
+    } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
-    if(isElementPresent(By.name("new_group"))) {
+    if (isElementPresent(By.name("new_group"))) {
     }
   }
 
@@ -61,8 +61,12 @@ public class ContactsHelper extends HelperBase {
   }
 
   public void startHomePage() {
-    click(By.linkText("home"));
+    if (isElementPresent(By.id("maintable"))) {
+      return;
   }
+
+  click(By.linkText("home"));
+}
 
   public void selectedContacts() {
     click(By.name("selected[]"));
