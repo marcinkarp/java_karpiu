@@ -9,9 +9,13 @@ public class ContactsModificationTest extends TestBase {
 
   public void testContactsModyfication() {
     app.getContactsHelper().startHomePage();
+    if (!app.getContactsHelper().isThereAGroupContacts()) {
+      app.getContactsHelper().createGroupContacts
+              (new GroupContacts("Bolek", "Lolek", "PO", "dsada", "151515", "dasdasda", null), false);
+    }
     app.getContactsHelper().initContactsModyfication();
     app.getContactsHelper().fillContactsForm
-            (new GroupContacts("Bolek","Lolek","PO","dsada","151515","dasdasda", null), false);
+            (new GroupContacts("Montek","KOTEL","LSD","dsada","151515","dasdasda", null), false);
     app.getContactsHelper().submitUpdateContacts();
     app.getContactsHelper().returnToHomePage();
   }

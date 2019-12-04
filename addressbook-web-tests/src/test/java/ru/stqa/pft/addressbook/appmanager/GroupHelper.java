@@ -59,4 +59,15 @@ public class GroupHelper extends HelperBase {
   public void deleteSelectedGroup() {
     wd.findElement(By.name("delete")).click();
   }
+
+  public void createGroup(GroupData group) {
+    initGroupCreation();
+    fillGroupForm(group);
+    submitGroupCreate();
+    returnToGroupPage();
+  }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
+  }
 }

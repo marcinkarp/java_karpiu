@@ -53,7 +53,7 @@ public class ContactsHelper extends HelperBase {
   }
 
   public void initContactsModyfication() {
-    click(By.xpath("(// img [@ alt = 'Edit']) [3]"));
+    click(By.xpath("//img[@alt='Edit']"));
   }
 
   public void submitUpdateContacts() {
@@ -74,5 +74,19 @@ public class ContactsHelper extends HelperBase {
 
   public void deletedContacts() {
     click(By.xpath("(// img [@ alt = 'Edit']) [3]"));
+  }
+
+  public void createGroupContacts(GroupContacts group, boolean b) {
+    startHomePage();
+    sumbitAddNew();
+//    initContactsModyfication();
+    fillContactsForm
+            (group, false);
+    submitUpdateContacts();
+    returnToHomePage();
+  }
+
+  public boolean isThereAGroupContacts() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
